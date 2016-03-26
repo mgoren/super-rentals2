@@ -1,0 +1,15 @@
+<h2>More information about {{model.name}}:</h2>
+
+<p>attraction: {{model.attraction}}</p>
+<p>country: {{model.country}}</p>
+
+{{update-city city=model updateCity="updateCity"}}
+<button {{action 'destroyCity' model}}>Delete</button>
+
+<h2>Rentals in {{model.name}}</h2>
+
+{{#each model.rentals as |rental|}}
+  {{rental-tile rental=rental destroyRental="destroyRental" updateRental="updateRental"}}
+{{/each}}
+
+{{new-rental saveRental="saveRental" city=model}}

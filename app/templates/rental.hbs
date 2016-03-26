@@ -1,0 +1,6 @@
+<h2>More information about {{model.owner}}'s {{model.type}}</h2>
+
+{{rental-detail rental=model}}
+
+{{update-rental rental=model updateRental="updateRental"}}
+<button {{action 'destroyRental' model}}>Delete</button>

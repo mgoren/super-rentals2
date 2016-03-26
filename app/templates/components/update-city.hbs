@@ -1,0 +1,24 @@
+{{#if updateCityFormShowing}}
+  <h4>Update {{city.name}}</h4>
+    <div>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          {{input value=name id="name" placeholder=city.name}}
+        </div>
+
+        <div class="form-group">
+          <label for="attraction">Attraction</label>
+          {{input value=attraction id="attraction" placeholder=city.attraction}}
+        </div>
+
+        <div class="form-group">
+          <label for="country">Country</label>
+          {{input value=country id="country" placeholder=city.country}}
+        </div>
+        <button {{action 'update' city}}>Save</button>
+      </form>
+    </div>
+{{else}}
+    <button {{action 'showForm'}}>Update</button>
+{{/if}}
