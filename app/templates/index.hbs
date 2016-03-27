@@ -1,9 +1,3 @@
-<h1>All Rentals in All Cities</h1>
-
-{{#each model.rentals as |rental|}}
-  {{rental-tile rental=rental destroyRental="destroyRental" updateRental="updateRental"}}
-{{/each}}
-
 <h1>Cities</h1>
 {{#each model.cities as |city|}}
   <li>

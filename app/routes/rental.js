@@ -6,8 +6,9 @@ export default Ember.Route.extend({
   },
   actions: {
     destroyRental(rental) {
+      var city = rental.get('city')
       rental.destroyRecord();
-      this.transitionTo('index');
+      this.transitionTo('city', city);
     },
     updateRental(rental, params) {
       Object.keys(params).forEach(function(key) {
@@ -16,7 +17,7 @@ export default Ember.Route.extend({
         }
       });
       rental.save();
-      this.transitionTo('index');
+      this.transitionTo('city', params.city);
     }
   }
 });

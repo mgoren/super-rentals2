@@ -16,7 +16,7 @@ export default Ember.Route.extend({
         }
       });
       city.save();
-      this.transitionTo('index');
+      this.transitionTo('city', city);
     },
     saveRental(params) {
       var newRental = this.store.createRecord('rental', params);
@@ -25,8 +25,23 @@ export default Ember.Route.extend({
       newRental.save().then(function() {
         return city.save();
       });
-      this.transitionTo('city', params.city);
+      this.transitionTo('city', city);
     },
+    destroyRental(rental) {
+      var city = rental.get('city');
+      rental.destroyRecord();
+      this.transitionTo('city', city);
+    },
+    updateRental(rental, params) {
+      var city = rental.get('city');
+      Object.keys(params).forEach(function(key) {
+        if(params[key]!==undefined) {
+          rental.set(key,params[key]);
+        }
+      });
+      rental.save();
+      this.transitionTo('city', city);
+    }
 
 
   }
